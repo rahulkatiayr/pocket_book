@@ -261,7 +261,7 @@ app.post("/notes/:id/favourite",async(req,res,next)=>{
 
 
 // book record delete
-app.delete("/notes/:id/delete",comes_first,async(req,res,next)=>{
+app.delete("/notes/:id/deletebook",comes_first,async(req,res,next)=>{
     
     try {
 
