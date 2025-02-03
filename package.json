@@ -1,7 +1,8 @@
 {
 
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "echo 'Build command goes here'"
   },
   "type": "module",
   "dependencies": {
