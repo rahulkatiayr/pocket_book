@@ -36,7 +36,7 @@
                     
                         <% if(user_id===imp.reader_id){ %>
                             
-                            <form action="/notes/<%= imp.book_id %>/delete?_method=DELETE" method="POST">
+                            <form action="/notes/<%= imp.book_id %>/deletebook?_method=DELETE" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                             
