@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style2.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style3.css">
+    
+</head>
+<body >
+    <%- include('../partials/navbar') %>
+    <form action="/notes/login/check" method="POST">
+        <h2>Log-in</h2>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+        
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password">
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

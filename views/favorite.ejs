@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Notes</title>
+    <link rel="stylesheet" href="/style3.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/style2.css">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+    <%- include('partials/navbar.ejs') %>
+
+    <h1>Your Favourite Notes</h1>
+    
+    <div class="notes-container">
+        <% for(let fav of data_f) { %>
+            <div class="note">
+                <p><%= fav.content %></p>
+            </div>
+        <% } %>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+    
+</body>
+</html>

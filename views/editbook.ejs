@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book Details</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <!-- Edit Form Container with Correct Class Name -->
+    <div class="edit-form-container">
+        <form action="/notes/<%= id %>/editbook?_method=PUT" method="POST">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="<%= book.title %>">
+
+            <label for="isbn">ISBN</label>
+            <input type="text" name="isbn" id="isbn" value="<%= book.isbn_number %>">
+
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author" value="<%= book.author %>">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

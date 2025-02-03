@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  header {
+    background-color: #2E3B4E;
+    color: white;
+    padding: 40px 20px;
+    height: 450px; /* Increased height for more prominence */
+  }
+  
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .hero-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 3.8rem; /* Increased font size of title */
+  }
+  
+  .hero-section p {
+    font-size: 1.3rem;
+  }
+  
+  .cta-button {
+    background-color: #FF6F61;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px; /* Added more spacing to button */
+  }
+  
+  .cta-button:hover {
+    background-color: #FF5B4B;
+  }
+  
+  .about, .why-us, .explore {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .feature {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .book-images {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+  }
+  
+  .book {
+    width: 30%;
+  }
+  
+  .book img {
+    width: 100%;
+    height: 500px; /* Ensured uniform image size */
+    object-fit: cover; /* Maintains aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    background-color: #2E3B4E;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 2rem; /* Increased the font size of the logo */
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Additional Styling for Login and Signup Forms */
+  form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2E3B4E;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  form button:hover {
+    background-color: #FF6F61;
+  }
+  
+  form .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  form .forgot-password a {
+    color: #FF6F61;
+    text-decoration: none;
+  }
+  
+  form .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+
+ 

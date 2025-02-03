@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Notes</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar.ejs') %>
+    
+
+   <!-- Change this -->
+   <% if (locals.success && locals.success.length > 0) { %>
+    <div class="alert alert-success"><h1><%= locals.success %></h1></div>
+<% } %>
+
+    
+
+    <!-- Main Content -->
+    <div class="book-container">
+        <% for (let imp of imp_data) { %>
+        <div class="book-card">
+            <img src="https://covers.openlibrary.org/b/isbn/<%= imp.isbn_number %>-L.jpg" alt="<%= imp.title %> cover" class="book-img">
+            <div class="book-details">
+                <h3 class="book-title"><%= imp.title %></h3>
+                <p class="book-author">By <%= imp.author %></p>
+                <div class="book-actions">
+                    <a href="/notes/<%= imp.book_id %>/viewAll" class="btn btn-view">View </a>
+                    <% if(user_id===imp.reader_id) {%>
+                        <a href="/notes/<%= imp.book_id %>/edit" class="btn btn-edit">Edit</a>
+                        <% } %>
+                    
+                        <% if(user_id===imp.reader_id){ %>
+                            
+                            <form action="/notes/<%= imp.book_id %>/delete?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            
+                            <% } %>
+                    
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <!-- Scroll Arrow Button -->
+    <div class="scroll-arrow" id="scroll-right">
+        &rarr;
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+    <!-- <script src="/scroll.js"></script> -->
+</body>
+</html>

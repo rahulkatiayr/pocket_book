@@ -1,0 +1,490 @@
+/* Root Variables */
+:root {
+    --primary-color: #1E2A38; /* Deep navy blue */
+    --secondary-color: #E67E22; /* Orange (Edit) */
+    --view-color: #9B59B6; /* Purple (View Notes) */
+    --danger-color: #E74C3C; /* Red (Delete) */
+    --background-color: #F1F5F9; /* Soft greyish-blue */
+    --text-color: #333;
+    --card-background: #FFF;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+
+    /* Additional Notes Page Variables */
+    --note-bg-light: #f9f9f9;
+    --note-hover-bg: #f0f0f0;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 2rem 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 1.5rem;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Book Container */
+.book-container {
+    display: flex;
+    overflow-x: hidden;
+    gap: 2rem;
+    padding: 2rem 5%;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.book-container::-webkit-scrollbar {
+    display: none;
+}
+
+.book-container .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.book-container .scroll-arrow:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Book Card */
+.book-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    padding: 1rem;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 300px;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.book-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Book Details */
+.book-details {
+    padding: 1rem 0;
+}
+
+.book-title {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.book-author {
+    font-size: 1rem;
+    color: #444;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Book Actions */
+.book-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+    text-align: center;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* Button Colors */
+.btn-edit {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #D35400;
+    transform: scale(1.05);
+}
+
+.btn-view {
+    background-color: var(--view-color);
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #8E44AD;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: darkred;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* New Book Form Styling */
+.new-form-container form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-form-container form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.new-form-container form input,
+.new-form-container form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.new-form-container form input:focus,
+.new-form-container form textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.new-form-container form button {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-form-container form button:hover {
+    background-color: #574bbf;
+}
+
+.new-form-container form textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Edit Book Form Styling */
+.edit-form-container form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form-container form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.edit-form-container form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.edit-form-container form input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.edit-form-container form button {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-form-container form button:hover {
+    background-color: #574bbf;
+}
+
+/* Notes Page Specific Styles */
+.note-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.note-item {
+    background-color: var(--note-bg-light);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.note-item:hover {
+    background-color: var(--note-hover-bg);
+    transform: translateY(-3px);
+}
+
+.note-content {
+    flex-grow: 1;
+    margin-right: 1rem;
+    word-break: break-word;
+}
+
+.checkbox-container {
+    display: none;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.checkbox-container textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.checkbox-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 42, 56, 0.1);
+}
+
+.checkbox-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.checkbox-container button:hover {
+    background-color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        margin-top: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0;
+    }
+
+    .book-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .new-form-container form,
+    .edit-form-container form {
+        padding: 20px;
+        margin: 30px 15px;
+    }
+
+    .new-form-container form input,
+    .edit-form-container form input,
+    .new-form-container form textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .new-form-container form button,
+    .edit-form-container form button {
+        padding: 10px 15px;
+    }
+
+    .note-container {
+        padding: 1rem;
+    }
+
+    .note-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+.notes-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+.notes-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+}

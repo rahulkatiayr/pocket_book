@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Notes</title>
+    <link rel="stylesheet" href="/style.css">
+    
+    
+</head>
+<body>
+
+    
+    <div class="notes-header">
+        <h2>Your Notes</h2>
+    </div>
+    
+    <div class="note-container">
+        <% for (let cont of content) { %>
+            <div class="note-item">
+                <p class="note-content"><%= cont.content %></p>
+                
+                <div>
+                    <!-- Delete Form -->
+
+                    <% if(cont.reader_id===user_id){ %>
+                        
+                        <form action="/notes/<%= cont.notes_id %>/delete?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete@</button>
+                        </form>
+                         <br>
+                         <br>
+                        <!-- making favorite button  -->
+                        <form action="/notes/<%= cont.notes_id %>/favourite" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Favourite</button>
+                        </form>
+                        <br>
+                        <br>
+                        <!-- Edit Button -->
+                        <button onclick="toggleCheckbox('<%= cont.notes_id %>')" class="btn btn-edit">Edit Note</button>
+                        
+                        <% } %>
+                    
+                </div>
+
+                <!-- Hidden Edit Form -->
+                <div id="checkbox-container-<%= cont.notes_id %>" class="checkbox-container">
+                    <form action="/notes/<%= cont.notes_id %>/editnote?_method=PUT" method="POST">
+                        <label>
+                            <input type="checkbox" name="confirm" required> Confirm editing note
+                        </label>
+                        <textarea name="content" placeholder="Enter updated note here..." required><%= cont.content %></textarea>
+                        <button type="submit">Update Note</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+        
+        <!-- Add Note Button -->
+         <% if(content.reader_id===user_id) {%>
+            <button onclick="toggleCheckbox('new')" class="btn btn-view">Add New Note</button>
+            <%}  %>
+       
+        
+        <!-- Hidden Add Note Form -->
+        <div id="checkbox-container-new" class="checkbox-container">
+            <form action="/notes/<%= book_id %>/newnote" method="POST">
+                <label>
+                    <input type="checkbox" name="confirm" required> Confirm adding a note
+                </label>
+                <textarea name="content" placeholder="Enter your note here..." required></textarea>
+                <button type="submit">Add Note</button>
+            </form>
+        </div>
+    </div>
+
+
+    
+    <script>
+        function toggleCheckbox(noteId) {
+            let checkboxDiv = document.getElementById("checkbox-container-" + noteId);
+            if (checkboxDiv.style.display === "none" || checkboxDiv.style.display === "") {
+                checkboxDiv.style.display = "block";
+            } else {
+                checkboxDiv.style.display = "none";
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

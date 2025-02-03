@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert new note</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Wrap the form in a specific container for better targeting in CSS -->
+     <%- include("partials/navbar.ejs") %>
+    <div class="new-form-container">
+        <form action="/notes/newbookandnote" method="POST">
+            <!-- Title -->
+            <label for="title">Title of the book</label>
+            <input type="text" placeholder="Enter title of the book" id="title" name="title" required>
+
+            <!-- ISBN -->
+            <label for="isbn">Enter ISBN of the Book</label>
+            <input type="text" placeholder="Enter ISBN of the book" id="isbn" name="isbn" required>
+
+            <!-- Author -->
+            <label for="author">Author of the Book</label>
+            <input type="text" placeholder="Enter author name" id="author" name="author" required>
+
+            <!-- Content -->
+            <label for="content">Write your content here</label>
+            <textarea name="content" id="content" placeholder="Enter note here ......." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
