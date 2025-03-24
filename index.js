@@ -65,14 +65,29 @@ app.use(passport.session());
 
 
 
-const db = new pg.Client({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DATABASE,
-    password: process.env.PG_PASSWORD,
-    port: process.env.PORT,
+// const db = new pg.Client({
+//     user: process.env.PG_USER,
+//     host: process.env.PG_HOST,
+//     database: process.env.PG_DATABASE,
+//     password: process.env.PG_PASSWORD,
+//     port: process.env.PORT,
+// });
+// db.connect();
+
+const { Pool } = require("pg");
+require("dotenv").config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,  // Use DATABASE_URL from .env
+  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,  // Required for Render
 });
-db.connect();
+
+pool.connect()
+  .then(() => console.log(" Connected to PostgreSQL!"))
+  .catch((err) => console.error(" Database connection error:", err));
+
+module.exports = pool;
+
 
 let got_readerId;
 
