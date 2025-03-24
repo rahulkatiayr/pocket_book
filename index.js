@@ -76,12 +76,24 @@ db.connect();
 
 let got_readerId;
 
+// const comes_first = (req, res, next) => {
+//     if (req.isAuthenticated()) {
+//         req.session.userId = req.user.rows[0].reader_id;  // Store user data globally for this request
+//         console.log("check data here ! ");
+//         console.log(req.readerId);
+        
+//         return next();  // Continue to the next middleware or route handler
+//     }
+//     res.redirect("/notes/login");  // Redirect if not authenticated
+// };
 const comes_first = (req, res, next) => {
     if (req.isAuthenticated()) {
-        req.session.userId = req.user.rows[0].reader_id;  // Store user data globally for this request
-        console.log("check data here ! ");
-        console.log(req.readerId);
-        
+        req.readerId = req.user.rows[0].reader_id;  // Store reader_id in req
+        req.session.userId = req.readerId;  // Store it in session as well
+
+        console.log("check data here !");
+        console.log(req.readerId);  // Now it will log correctly
+
         return next();  // Continue to the next middleware or route handler
     }
     res.redirect("/notes/login");  // Redirect if not authenticated
@@ -149,6 +161,7 @@ app.get("/notes/individuals",comes_first, async (req, res) => {
     try {
 
         const book_data = await db.query("SELECT * FROM book where reader_id= $1 ",[user_id] ); // Wait for the data to be fetched
+        console.log(book_data);
         let imp_data=book_data.rows;    
         console.log(imp_data);
         res.render("myindex.ejs", { imp_data,user_id });   
@@ -266,6 +279,7 @@ app.delete("/notes/:id/delete",comes_first,async(req,res,next)=>{
     try {
 
         let id=req.params.id;
+        console.log(`book id is ${id}`);
         await db.query("DELETE FROM book where book_id=$1",[id]);
         res.redirect("/notes/individuals");
         
@@ -407,7 +421,7 @@ app.post("/notes/login/check", passport.authenticate("local",{
 
 
 // delete one particular note 
-app.delete("/notes/:id/delete",comes_first,async(req,res)=>{
+app.delete("/notes/:id/delete",comes_first,async(req,res,next)=>{
     
 
     try {
